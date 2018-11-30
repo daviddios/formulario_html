@@ -1,0 +1,411 @@
+@import url('https://fonts.googleapis.com/css?family=Poiret+One');
+@import url('https://fonts.googleapis.com/css?family=Contrail+One');
+@import url('https://fonts.googleapis.com/css?family=Passion+One');
+@import url('https://fonts.googleapis.com/css?family=Text+Me+One');
+@import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz');
+
+
+
+
+
+html,
+body {
+  background-image: linear-gradient(to bottom right, rgb(255, 150, 64), rgb(228, 98, 23));
+  background-repeat: no-repeat;
+  background-size: auto;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+h1{
+  font-family: 'Passion One';
+  font-size: 5em;
+}
+h2{
+  font-family: 'Passion One';
+}
+h3{
+  font-family: 'Passion One';
+  margin-top: 20%;
+}
+h6{
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 1.5em;
+  text-align: left;
+}
+input {
+  width: 70%;
+  padding: 10px;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #000000;
+  margin-top: 5%;
+  font-family: 'Contrail One';
+  font-size: 1.2em;
+  margin: auto;
+}
+
+::-webkit-input-placeholder {
+  color: black;
+  text-align: center;
+  font-family: 'Text Me One', sans-serif;
+  font-size: 1.2em;
+}
+
+::-moz-placeholder {
+  color: black;
+  text-align: center;
+  font-family: 'Text Me One', sans-serif;
+  font-size: 1.2em;
+}
+
+:-ms-input-placeholder {
+  color: black;
+  text-align: center;
+  font-family: 'Text Me One', sans-serif;
+  font-size: 1.2em;
+}
+
+::placeholder {
+  color: rgb(53, 53, 53);
+  text-align: left;
+  font-family: 'Text Me One', sans-serif;
+  font-size: 1.2em;
+}
+
+.contenedor {
+
+  position: relative;
+  border-radius: 10px 50px;
+  background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(236, 236, 236) , rgb(255, 255, 255));
+  overflow: hidden;
+  margin: 0 0 0% 35%;
+  width: 30%;
+  height: 80%;
+  -webkit-box-shadow: 0px 0px 191px 8px rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0px 0px 191px 8px rgba(0, 0, 0, 0.19);
+  box-shadow: 0px 0px 191px 8px rgba(0, 0, 0, 0.19);
+}
+
+img {
+  max-width:60%;
+  height:auto;
+}
+
+/* Seleccion */
+option{
+  align-content: center;
+  text-align: center;
+  font-family: 'Text Me One', sans-serif;
+  font-size: 1.2em;
+}
+.custom-select {
+  background-color: white;
+  position: relative;
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+  border: 1px solid;
+  z-index: 10;
+  text-align: center;
+  font-family: 'Text Me One', sans-serif;
+  font-size: 1.2em;
+}
+.custom-select select {
+  border: none;
+  outline: none;
+  background: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  margin: auto;
+  display: block;
+  width: 100%;
+  padding: 3%;
+  font-size: 14px;
+  text-align: center;
+  font-family: 'Text Me One', sans-serif;
+  font-size: 1.2em;
+}
+.custom-select:after {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  line-height: 38px;
+ 
+}
+
+/* -------BOTONS------- */
+
+
+.btn {
+  margin: 3%;
+  color: #101832;
+  cursor: pointer;
+  display: inline-block;
+  letter-spacing: 0.075em;
+  position: relative;
+  align-self: center;
+  text-transform: uppercase;
+  z-index: 1;
+  box-shadow: -0.5em 0.5em rgba(16, 24, 50, 0);
+  transform-origin: left bottom;
+  -webkit-transition: all 200ms ease-in-out;
+  -moz-transition: all 200ms ease-in-out;
+  -o-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+}
+
+.btn:hover {
+  background-color: white;
+  background-size: 90%;
+  transform: translate(0.5em, -0.5em);
+  box-shadow: -1em 1em 0.15em rgba(16, 24, 50, 0.1);
+}
+
+
+
+
+/* PANEL DEREITA */
+.panel_dereita {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 0%;
+  width: 0%;
+  visibility: hidden;
+  -webkit-transition: visibility 0s 0.6s;
+  transition: visibility 0s 0.6s;
+  margin-left: 100px;
+}
+
+.panel_dereita::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  cursor: pointer;
+  -webkit-transition: background 0.3s 0.3s;
+  transition: background 0.3s 0.3s;
+}
+
+.panel_dereita.cd-panel--is-visible {
+  visibility: visible;
+  -webkit-transition: visibility 0s 0s;
+  transition: visibility 0s 0s;
+}
+
+.panel_dereita.cd-panel--is-visible::after {
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-transition: background 0.3s 0s;
+  transition: background 0.3s 0s;
+}
+
+.boton_cerrar {
+  color: black;
+  position: absolute;
+  font-family: 'Passion One';
+  font-size: 2em;
+  top: 0;
+  right: 0;
+  height: 10%;
+  width: 60px;
+  display: inline-block;
+  text-indent: 0%;
+
+}
+
+.cd-panel__container {
+  position: fixed;
+  width: 20%;
+  height: 50%;
+  top: 25%;
+  background: #ffffff9d;
+  z-index: 1;
+  -webkit-transition: -webkit-transform 0.3s 0.3s;
+  transition: -webkit-transform 0.3s 0.3s;
+  transition: transform 0.3s 0.3s;
+  transition: transform 0.3s 0.3s, -webkit-transform 0.3s 0.3s;
+  -webkit-box-shadow: 0px 0px 191px 8px rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0px 0px 191px 8px rgba(0, 0, 0, 0.19);
+  box-shadow: 0px 0px 191px 8px rgba(0, 0, 0, 0.19);
+  border-radius: 20px 0 0 20px;
+
+}
+
+
+.cd-panel--from-right .cd-panel__container {
+  right: 0;
+  width: 30%;
+  -webkit-transform: translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0);
+}
+
+.cd-panel--from-left .cd-panel__container {
+  left: 0;
+  -webkit-transform: translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0);
+}
+
+.cd-panel--is-visible .cd-panel__container {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+}
+
+.cd-panel__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-right: 20%;
+  width: 100%;
+  height: 100%;
+  padding: 70px 5%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+/* ANGULARJS */
+
+
+/*-----------------------------------*/
+/*----------->>> HELPERS <<<-------------*/
+/*-----------------------------------*/
+
+[ng\:cloak],
+[ng-cloak],
+.ng-cloak {
+  display: none;
+}
+/*------>>> Animations <<<-----*/
+.fade {
+  opacity: 0;
+  -webkit-transition: opacity 0.25s ease-in;
+  -moz-transition: opacity 0.25s ease-in;
+  -o-transition: opacity 0.25s ease-in;
+  -ms-transition: opacity 0.25s ease-in;
+  transition: opacity 0.25s ease-in;
+  transition-delay: 0.25s;
+}
+
+.fade.in {
+  opacity: 1;
+}
+
+.animate-switch-container {
+  color: whitesmoke;
+  overflow: hidden;
+  /* box-shadow: 6px 6px 15px gray; */
+  padding: 10px;
+  border-radius: 10px;
+  background-size: 50px 50px;
+  width: 70%;
+  margin: auto;
+  text-align: center;
+}
+
+.animate-switch {
+  padding: 10px;
+  width: 100%;
+}
+
+.animate-switch.ng-animate {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  position: absolute;
+
+}
+
+/* hide leaving slide  */
+/* show */
+.animate-switch.ng-leave {
+  left: 0;
+}
+
+/* hide */
+.forward .animate-switch.ng-leave.ng-leave-active {
+  left: -100%;
+}
+
+.backward .animate-switch.ng-leave.ng-leave-active {
+  left: 100%;
+}
+
+/* show entering slide  */
+/* hide */
+.forward .animate-switch.ng-enter {
+  left: 100%;
+}
+
+.backward .animate-switch.ng-enter {
+  left: -100%;
+}
+
+/* show */
+.animate-switch.ng-enter.ng-enter-active {
+  left: 0;
+}
+
+
+/*-----------------------------------*/
+/*------>>> Validation <<<-----------*/
+/*-----------------------------------*/
+
+.form-validation input.ng-invalid-maxlength {
+  border: 2px solid #D9272D;
+}
+
+
+.length-error {
+  color: #D9272D;
+  display: block;
+  font-size: 12px;
+  opacity: .8;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  position: relative;
+  line-height: 18px;
+  padding: 10px 10px 5px 10px;
+  margin: -25px 0 20px 0;
+  background-color: #E3E3E3;
+  border-radius: 0 0 5px 5px;
+}
+
+.input-error {
+  border: 2px solid #D9272D;
+}
+
+/*-----------------------------------*/
+/*------->>> FORM STYLES <<<---------*/
+/*-----------------------------------*/
+
+.note {
+  display: block;
+  font-size: 12px;
+  opacity: .8;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  position: relative;
+  line-height: 18px;
+}
+
+.note-input {
+  padding: 10px 10px 5px 10px;
+  margin: -25px 0 20px 0;
+  background-color: #E3E3E3;
+  border-radius: 0 0 5px 5px;
+}
+
+.note-input-error,
+.required-error-banner {
+  background-color: rgba(217, 39, 45, 0.5);
+}
+

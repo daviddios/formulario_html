@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>BashCock</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+
+</head>
+
+<body ng-app="formApp" ng-controller="formCtrl" ng-cloak>
+  <h1>Rexistro de Usuario</h1>
+  <div class="contenedor">
+    <form name="multiStepForm" ng-switch on="stage" ng-class="{forward: direction, backward:!direction}">
+
+<!-- PRIMEIRA PESTAÑA -->
+      <div ng-switch-default>
+        <img src="images/logo.png" alt="BashCock">
+        <h2>Alegrámonos de verte {{formParams.nome}}.</h2>
+        <p>
+          <input type="text" placeholder="Nome" name="nome" ng-maxlength="20" ng-model="formParams.nome" required
+            ng-class="{'input-error': formValidation && multiStepForm.nome.$error.required}">
+          <span ng-show="multiStepForm.nome.$error.maxlength">Non te chamas así...</span>
+        </p>
+        <p><input type="text" placeholder="Primeiro Apelido" name="primeiro_apelido" ng-maxlength="18" ng-model="formParams.primeiro_apelido"
+            ng-class="{'input-error': formValidation && multiStepForm.primeiro_apelido.$error.required}" required>
+          <span ng-show="multiStepForm.primeiro_apelido.$error.maxlength">
+            Seguro que é o teu apelido?
+          </span>
+        </p>
+        <p>
+          <input type="text" placeholder="Segundo Apelido" name="segundo_apelido" ng-maxlength="18" ng-model="formParams.segundo_apelido"
+            ng-class="{'input-error': formValidation && multiStepForm.segundo_apelido.$error.required}" required>
+          <span ng-show="multiStepForm.segundo_apelido.$error.maxlength">
+            Seguro que é o teu segundo apelido?
+          </span>
+        </p>
+
+        <div class="custom-select">
+          <select ng-model="formParams.sexo" class="custom-select" name="options">
+            <option value="" disabled selected>
+              Selecciona o teu sexo
+            </option>
+            <option value="Masculino">
+              Masculino
+            </option>
+            <option value="Femenino">
+              Femenino
+            </option>
+          </select>
+        </div>
+        <select hidden ng-model="formParams.sexo">
+          <option value="">- Selecciona o teu sexo -</option>
+          <option value="Masculino">Masculino</option>
+          <option value="Femenino">Femenino</option>
+        </select>
+      <p>
+    <button type="button" ng-click="next('stage2')" class="btn">Seguinte</button>
+      </p>
+    </div>
+<!-- SEGUNDA PESTAÑA -->
+      <div ng-switch-when="stage2">
+        <div class="form-group">
+          <h3>Onde podemos contactarche, {{formParams.nome}}?</h3>
+          <p>
+            <input placeholder="eMail:" type="email" name="email" ng-maxlength="100" ng-model="formParams.email"
+              ng-class="{'input-error': formValidation && multiStepForm.email.$error.required}" ng-model-options="{ updateOn: 'blur' }"
+              required>
+            <span ng-show="multiStepForm.email.$error.email">
+              Introduce un correo válido.
+            </span>
+            <span ng-show="multiStepForm.email.$error.maxlength">
+              Demasiados caracteres para un correo.
+            </span>
+          </p>
+          <p>
+            <input type="text" placeholder="Dirección:" name="direccion" ng-maxlength="80" ng-model="formParams.direccion" required ng-class="{'input-error': formValidation && multiStepForm.direccion.$error.required}">
+            <span ng-show="multiStepForm.direccion.$error.maxlength">Máximo 80 caracteres</span>
+          </p>
+          <p><input type="number" placeholder="Código Postal" name="codpostal" ng-minlength="5" ng-maxlength="5" ng-model="formParams.codpostal" ng-class="{'input-error': formValidation && multiStepForm.codpostal.$error.required}"
+              >
+            <span ng-show="multiStepForm.codpostal.$error.maxlength">
+              Codígo postal da forma XXXXX
+            </span>
+          </p>
+          <p>
+            <input type="text" placeholder="Cidade:" name="cidade" ng-maxlength="30" ng-model="formParams.cidade"
+              ng-class="{'input-error': formValidation && multiStepForm.cidade.$error.required}" required>
+            <span ng-show="multiStepForm.cidade.$error.maxlength">
+              Que cidade máis rara...
+            </span>
+          </p>
+          <p>
+              <div class="custom-select">
+                  <select ng-model="formParams.pais" class="custom-select" name="options">
+                    <option value="" disabled selected>
+                      Selecciona o teu país
+                    </option>
+                    <option value="España">
+                      España
+                    </option>
+                    <option value="Estranxeiro">
+                      Estranxeiro
+                    </option>
+                  </select>
+                </div>
+          </p>
+          <p>
+            <input type="number" placeholder="Teléfono" name="telefono" ng-maxlength="9" ng-model="formParams.telefono"
+              ng-class="{'input-error': formValidation && multiStepForm.telefono.$error.required}">
+            <span ng-show="multiStepForm.telefono.$error.maxlength">
+              Vaia, un numero de teléfono de outro mundo!
+            </span>
+          </p>
+          <p>
+            <button type="button" class="btn" ng-click="back('stage1')">Atrás</button>
+
+                    </p>
+        </div>
+      </div>
+      <!-- DENDE AQUI CHAMAMOS A ABRIR O PANEL DE DEREITA -->
+      <a href="#0" class="btn js-cd-panel-trigger" data-panel="main">Ver datos</a>
+  </div>
+  </form>
+  <!-- ESTE E O PANEL DA DEREITA -->
+  <div class="panel_dereita cd-panel--from-right js-cd-panel-main">
+
+      <div class="cd-panel__container">
+        <div class="cd-panel__content">
+          <h6>Nome: {{formParams.nome}}</h6>
+          <h6>Apelidos: {{formParams.primeiro_apelido}} {{formParams.segundo_apelido}}</h6>
+          <h6>Sexo: {{formParams.sexo}}</h6>
+          <h6>Email: {{formParams.email}}</h6>
+          <h6>Direccion: {{formParams.direccion}}</h6>
+          <h6>Cidade: {{formParams.cidade}}</h6>
+          <h6>Código Postal:{{formParams.codpostal}}</h6>
+          <h6>País: {{formParams.pais}}</h6>
+          <a href="#0" class="boton_cerrar js-cd-close">X</a>
+          <button type="reset" class="btn" value="Reset" ng-click="reset()">Volver a cubrir</button>
+          <button type="submit" class="btn" value="Submit">Rexistrarme</button>
+        </div>
+      </div>
+    </div>
+  
+  
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular-animate.min.js'></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.js'></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
